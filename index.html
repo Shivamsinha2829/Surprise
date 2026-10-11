@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Special Invitation ❤️</title>
+
+<style>
+body{
+    margin:0;
+    font-family:'Segoe UI',sans-serif;
+    background:linear-gradient(135deg,#ffdde1,#ee9ca7);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    overflow:hidden;
+}
+
+.container{
+    background:white;
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,.2);
+    text-align:center;
+    max-width:500px;
+    width:90%;
+}
+
+h1{
+    color:#ff4f81;
+}
+
+input{
+    padding:12px;
+    width:80%;
+    border:2px solid #ff8fab;
+    border-radius:10px;
+    margin:10px 0;
+}
+
+button{
+    padding:12px 24px;
+    border:none;
+    border-radius:10px;
+    font-size:16px;
+    cursor:pointer;
+}
+
+.yes{
+    background:#4CAF50;
+    color:white;
+}
+
+.no{
+    background:#ff4d6d;
+    color:white;
+    position:absolute;
+}
+
+.hidden{
+    display:none;
+}
+</style>
+</head>
+<body>
+
+<!-- Secret Code Page -->
+<div class="container" id="codePage">
+    <h1>🔐 Secret Entry</h1>
+    <p>
+        Hey Beautiful ❤️<br><br>
+        To unlock something special, enter the secret code I gave you.
+    </p>
+
+    <input type="text" id="secretCode" placeholder="Enter Secret Code">
+    <br>
+    <button onclick="checkCode()">Open ❤️</button>
+
+    <p id="error" style="color:red;"></p>
+</div>
+
+<!-- Proposal Page -->
+<div class="container hidden" id="proposalPage">
+    <h1>🥰 Dear Love</h1>
+    <p>Would you like to go on a special date with me?</p>
+
+    <button class="yes" onclick="showDateSelection()">Yes ❤️</button>
+    <button class="no" id="noBtn">No 🙈</button>
+</div>
+
+<!-- Date Selection -->
+<div class="container hidden" id="datePage">
+    <h1>📅 Choose Our Date</h1>
+
+    <p>Select the perfect day and time ❤️</p>
+
+    <input type="date" id="date"><br>
+    <input type="time" id="time"><br><br>
+
+    <button onclick="showLoveNote()">Continue ❤️</button>
+</div>
+
+<!-- Final Love Note -->
+<div class="container hidden" id="lovePage">
+    <h1>💖 Thank You, My Love 💖</h1>
+
+    <p style="font-size:18px;">
+        Thank you for saying YES ❤️<br><br>
+
+        Every day feels brighter because of you.
+        Your smile can turn an ordinary moment into my favourite memory.
+        Your eyes shine brighter than any stars I know,
+        and your beauty leaves me speechless every single time.
+        But what I love most is your beautiful heart.
+        <br><br>
+
+        I cannot wait to spend this special date with you.
+        Thank you for being my happiness, my peace, and my favourite person in the world.
+        ❤️🌹
+    </p>
+
+    <h2>Love You Forever 💕</h2>
+</div>
+
+<script>
+function checkCode(){
+    let code=document.getElementById("secretCode").value.trim().toUpperCase();
+
+    if(code==="I LOVE YOU"){
+        document.getElementById("codePage").classList.add("hidden");
+        document.getElementById("proposalPage").classList.remove("hidden");
+    }else{
+        document.getElementById("error").innerText=
+        "Oops! That's not the secret code ❤️";
+    }
+}
+
+const noBtn=document.getElementById("noBtn");
+
+noBtn.addEventListener("mouseover",()=>{
+    const x=Math.random()*(window.innerWidth-150);
+    const y=Math.random()*(window.innerHeight-100);
+
+    noBtn.style.left=x+"px";
+    noBtn.style.top=y+"px";
+});
+
+function showDateSelection(){
+    document.getElementById("proposalPage").classList.add("hidden");
+    document.getElementById("datePage").classList.remove("hidden");
+}
+
+function showLoveNote(){
+    document.getElementById("datePage").classList.add("hidden");
+    document.getElementById("lovePage").classList.remove("hidden");
+}
+</script>
+
+</body>
+</html>
